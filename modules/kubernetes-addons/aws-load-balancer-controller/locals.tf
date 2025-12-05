@@ -41,6 +41,7 @@ locals {
   argocd_gitops_config = {
     enable             = true
     serviceAccountName = local.service_account
+    vpcId = try(var.helm_config.vpc_id, "")
   }
 
   irsa_config = {
